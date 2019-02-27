@@ -1,0 +1,20 @@
+﻿<Window x:Class="Cheops.UI.Dialogs.FenDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cheops.UI.Dialogs"
+        mc:Ignorable="d"
+        Title="Edycja pozycji" Height="275" Width="650" ResizeMode="NoResize" Icon="/Cheops;component/img/icon.ico">
+    <Grid>
+        <Label Content="FEN string:" Target="{Binding ElementName=xe_FENTextBox}" HorizontalAlignment="Left" Height="25" Margin="10,65,0,0" FontWeight="Bold" Width="77" RenderTransformOrigin="0.551,1.156" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="xe_FENTextBox"  TextWrapping="Wrap" Text="Enter FEN-string here..." VerticalAlignment="Top" Width="468" VerticalContentAlignment="Center" Margin="10,96,0,0" Height="25" Background="{x:Null}" TextChanged="em_OnTextChange" HorizontalAlignment="Left" GotFocus="em_FENTextBox_OnFocus"/>
+
+        <Button x:Name="xe_ButtonOK" Content="OK" HorizontalAlignment="Right" Margin="0,0,5,5" VerticalAlignment="Bottom" Width="150" Height="50" IsDefault="True" IsEnabled="False" Click="em_ButtonOK_OnClick"/>
+
+        <Image x:Name="xe_TickImage" HorizontalAlignment="Left" Height="64" Margin="527,76,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBlock x:Name="xe_OutputMessageTextBlock" HorizontalAlignment="Left" Margin="10,0,0,5" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="456" Height="50"/>
+
+    </Grid>
+</Window>

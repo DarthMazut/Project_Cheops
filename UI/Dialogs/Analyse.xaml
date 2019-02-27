@@ -1,0 +1,35 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cheops.UI.Dialogs"
+        xmlns:ChessBoardComponent="clr-namespace:Cheops.ChessBoardComponent" x:Class="Cheops.UI.Dialogs.Analyse"
+        mc:Ignorable="d"
+        Title="Analyse" Height="450" Width="700" Icon="/Cheops;component/icon.ico" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ChessBoardComponent:SmartBoard x:Name="xe_Board" HorizontalAlignment="Left" Height="250" Margin="432,87,0,0" VerticalAlignment="Top" Width="250" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Znajdź najelpszy ruch" VerticalAlignment="Top" FontSize="28" FontFamily="Cambria"/>
+        <Border BorderBrush="Black" BorderThickness="0,0,0,1" HorizontalAlignment="Center" Height="33" Margin="10,15,10,0" VerticalAlignment="Top" Width="672"/>
+        <ComboBox x:Name="xe_DDList" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="410" SelectionChanged="xe_DDList_SelectionChanged"/>
+        <Label x:Name="label" Content="Algorytm eksplorujący:" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Padding="0,5,5,5"/>
+        <CheckBox x:Name="xe_checkBox" Content="Iteracyjne pogłębianie" HorizontalAlignment="Left" Margin="24,145,0,0" VerticalAlignment="Top" Height="20" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <CheckBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </CheckBox.RenderTransform>
+        </CheckBox>
+        <TextBox x:Name="xe_Depth_TextBox" HorizontalAlignment="Left" Height="23" Margin="82,185,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="xe_Depth_TextBox_TextChanged"/>
+        <Label x:Name="label1" Content="Głębokość:" HorizontalAlignment="Left" Margin="11,182,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="xe_Button_OK" Content="Rozpocznij analizę" HorizontalAlignment="Center" Margin="10,0,10,10" VerticalAlignment="Bottom" Width="650" Height="40" FontSize="20" IsEnabled="False" Click="xe_Button_OK_Click"/>
+
+    </Grid>
+</Window>

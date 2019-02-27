@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="Cheops.ChessBoardComponent.ChessBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cheops.ChessBoardComponent"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Name="self"
+             Width="{Binding ActualHeight, ElementName=self}" SizeChanged="Component_Resize"
+             >
+
+    <UserControl.Resources>
+        <Style x:Key="arrowStyle" TargetType="local:Arrow">
+            <Setter Property="Stroke" Value="{Binding ArrowColor, ElementName=self}" />
+            <Setter Property="StrokeThickness" Value="{Binding ArrowThickness, ElementName=self}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Stroke" Value="{Binding ArrowHoverColor, ElementName=self}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
+    
+    <Border BorderBrush="{Binding OuterBorderColor, ElementName=self}" BorderThickness="{Binding OuterBorderThickness, ElementName=self}" >
+        <Grid x:Name="OuterGrid" x:FieldModifier="private" Background="{Binding MarginColor, ElementName=self}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="8" Grid.RowSpan="8" BorderThickness="{Binding InnerBorderThickness, ElementName=self}" BorderBrush="{Binding InnerBorderColor, ElementName=self}">
+                <Grid x:Name="InnerGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
